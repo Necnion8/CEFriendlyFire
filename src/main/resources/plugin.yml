@@ -1,0 +1,11 @@
+name: FriendlyFire
+version: '${version}'
+main: com.gmail.necnionch.myplugin.friendlyfire.bukkit.FriendlyFire
+api-version: 1.13
+depend: [ CommandAPI ]
+authors: [ Necnion8 ]
+load: STARTUP
+
+permissions:
+  friendlyfire.command.friendlyfire:
+    default: op
