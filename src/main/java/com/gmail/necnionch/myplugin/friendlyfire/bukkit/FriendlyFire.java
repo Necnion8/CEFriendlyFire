@@ -77,7 +77,7 @@ public final class FriendlyFire extends JavaPlugin implements Listener {
 
     private void execUngroup(NativeProxyCommandSender sender, Object[] args) {
         @SuppressWarnings("unchecked") List<Entity> targets = (List<Entity>) args[0];
-        addGroup(targets.stream().map(Entity::getUniqueId).collect(Collectors.toList()));
+        removeGroups(targets.stream().map(Entity::getUniqueId).collect(Collectors.toList()));
         sender.getCaller().sendMessage(targets.size() + "体のグループを解除しました。");
     }
 
