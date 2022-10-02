@@ -2,6 +2,7 @@ package com.gmail.necnionch.myplugin.friendlyfire.bukkit;
 
 import com.google.common.collect.Sets;
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.EntitySelector;
 import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.wrappers.NativeProxyCommandSender;
 import org.bukkit.entity.*;
@@ -26,11 +27,11 @@ public final class FriendlyFire extends JavaPlugin implements Listener {
         new CommandAPICommand("cefriendlyfire")
                 .withPermission(PERMS_COMMAND)
                 .withSubcommand(new CommandAPICommand("group")
-                        .withArguments(new EntitySelectorArgument("targets", EntitySelectorArgument.EntitySelector.MANY_ENTITIES))
+                        .withArguments(new EntitySelectorArgument<Collection<Entity>>("targets", EntitySelector.MANY_ENTITIES))
                         .executesNative(this::execGroup)
                 )
                 .withSubcommand(new CommandAPICommand("ungroup")
-                        .withArguments(new EntitySelectorArgument("targets", EntitySelectorArgument.EntitySelector.MANY_ENTITIES))
+                        .withArguments(new EntitySelectorArgument<Collection<Entity>>("targets", EntitySelector.MANY_ENTITIES))
                         .executesNative(this::execUngroup)
                 )
                 .register();
